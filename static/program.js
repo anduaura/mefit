@@ -461,9 +461,38 @@ function renderItem(dayKey, blockIdx, itemIdx, item) {
         ${item.freeform ? presc : ""}
         ${item.desc ? `<p class="desc">${item.desc}</p>` : ""}
         ${item.cue ? `<p class="cue">↪ ${item.cue}</p>` : ""}
+        ${renderDemo(item)}
         ${setButtons}
       </div>
     </li>
+  `;
+}
+
+function renderDemo(item) {
+  if (item.freeform) return "";
+  const demo = typeof lookupDemo === "function" ? lookupDemo(item.name) : null;
+  if (!demo) return "";
+
+  const safeName = String(item.name).replace(/"/g, "&quot;");
+  const ytUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(demo.yt)}`;
+  const imgs = demo.id
+    ? `
+      <div class="demo-imgs" aria-label="${safeName} demonstration">
+        <img loading="lazy" decoding="async" alt="${safeName} — start position"
+             src="${DEMO_IMAGE_BASE}/${demo.id}/0.jpg" />
+        <img loading="lazy" decoding="async" alt="${safeName} — end position"
+             src="${DEMO_IMAGE_BASE}/${demo.id}/1.jpg" />
+      </div>`
+    : "";
+
+  return `
+    <div class="demo">
+      ${imgs}
+      <a class="demo-link" href="${ytUrl}" target="_blank" rel="noopener noreferrer">
+        Watch demo on YouTube
+        <span aria-hidden>↗</span>
+      </a>
+    </div>
   `;
 }
 
