@@ -19,7 +19,7 @@ const DEMOS = {
   "world's greatest stretch":         { id: "Worlds_Greatest_Stretch",           yt: "world's greatest stretch how to" },
   "thoracic rotation (open book)":    { id: null,                                yt: "open book thoracic rotation stretch" },
   "half-kneeling hip flexor stretch": { id: "Kneeling_Hip_Flexor",               yt: "half kneeling hip flexor stretch" },
-  "standing hamstring stretch":       { id: "Hamstring_Stretch",                 yt: "standing hamstring stretch" },
+  "seated hamstring stretch":         { id: "Seated_Floor_Hamstring_Stretch",    yt: "seated hamstring stretch floor" },
   "pigeon stretch":                   { id: null,                                yt: "pigeon stretch how to" },
   "child's pose":                     { id: "Childs_Pose",                       yt: "child's pose stretch" },
   "standing quad stretch":            { id: null,                                yt: "standing quad stretch how to" },
