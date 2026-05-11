@@ -62,13 +62,12 @@ const PROGRAM = {
       {
         title: "Warm-Up",
         kind: "warmup",
-        note: "About 5 minutes. Add 1–2 light warm-up sets on the bench before working weight.",
+        note: "About 5 minutes. Add 1–2 light warm-up sets with lighter dumbbells before working weight.",
         items: [
           { name: "Cat-Cow",            sets: 1, prescription: "10 reps" },
           { name: "Arm Circles",        sets: 1, prescription: "10 each direction" },
           { name: "Thoracic Rotation (Open Book)", sets: 1, prescription: "6 reps/side" },
           { name: "Scapular Push-Up",   sets: 1, prescription: "10 reps", desc: "In a plank, protract and retract the shoulder blades. No elbow bend." },
-          { name: "Empty-Bar Bench Press", sets: 2, prescription: "8 reps", desc: "Just the bar. Groove the movement before loading." },
         ],
       },
       {
@@ -77,11 +76,11 @@ const PROGRAM = {
         note: "Rest 90 sec between sets. Pick a weight that leaves 1–2 reps in the tank on the last set.",
         items: [
           {
-            name: "Barbell Bench Press",
+            name: "Dumbbell Bench Press",
             sets: 4,
-            prescription: "6–8 reps",
-            desc: "Feet planted, slight arch in the lower back, bar touches mid-chest, press to lockout.",
-            cue: "Pause briefly at the bottom. Drive feet into the floor.",
+            prescription: "8–10 reps",
+            desc: "Lie on the bench, dumbbell in each hand at chest level, palms facing forward, press up until arms are straight.",
+            cue: "Don't lock the elbows hard at the top. Control the lower — 2 seconds down.",
             alt: { name: "Push-Up", sets: 3, prescription: "10 reps" },
           },
           {
@@ -182,13 +181,12 @@ const PROGRAM = {
       {
         title: "Warm-Up",
         kind: "warmup",
-        note: "Wake the hips up after soccer. Then add 2 light warm-up sets on the squat before working weight.",
+        note: "Wake the hips up after soccer. Then add 1–2 light warm-up sets with lighter dumbbells before working weight.",
         items: [
           { name: "Glute Bridge",      sets: 1, prescription: "15 reps", desc: "Lie on back, knees bent, drive hips up by squeezing glutes." },
           { name: "Cat-Cow",           sets: 1, prescription: "10 reps" },
           { name: "Ankle Rocks",       sets: 1, prescription: "10/side", desc: "Half-kneel, drive front knee forward over toes without lifting heel." },
           { name: "Bodyweight Squat",  sets: 1, prescription: "10 reps · slow" },
-          { name: "Empty-Bar Back Squat", sets: 2, prescription: "8 reps", desc: "Just the bar across your upper back. Groove the pattern before loading." },
         ],
       },
       {
@@ -197,26 +195,26 @@ const PROGRAM = {
         note: "Rest 2 min between squat sets, 90 sec between the other lifts. If legs feel cooked, drop one set of squats.",
         items: [
           {
-            name: "Barbell Back Squat",
+            name: "Dumbbell Goblet Squat",
             sets: 4,
-            prescription: "6–8 reps",
-            desc: "Bar on upper traps, brace the core, sit between the heels. Stand by driving the floor away.",
-            cue: "Chest tall. Knees track over toes. Depth: hip crease at or just below knee.",
+            prescription: "8–10 reps",
+            desc: "Hold one heavy dumbbell vertically against your chest with both hands cupping the top bell. Squat between the heels — elbows brush the inside of your knees at the bottom.",
+            cue: "Chest tall. Depth: hip crease at or just below knee. If you don't have one heavy enough, hold a DB in each hand at your sides.",
             alt: { name: "Bodyweight Squat", sets: 3, prescription: "15 reps" },
           },
           {
-            name: "Barbell Romanian Deadlift",
+            name: "Dumbbell Romanian Deadlift",
             sets: 3,
-            prescription: "8–10 reps",
-            desc: "Soft knees, bar travels along the thighs as you hinge back at the hips. Feel a stretch in the hamstrings, then drive hips forward to stand.",
-            cue: "Flat back. Bar stays glued to the legs.",
+            prescription: "10 reps",
+            desc: "Dumbbell in each hand in front of the thighs. Soft knees, hinge back at the hips, dumbbells travel along the legs. Feel the hamstring stretch, then drive hips forward to stand.",
+            cue: "Flat back. Dumbbells stay close to the legs the whole time.",
             alt: { name: "Single-Leg Glute Bridge", sets: 3, prescription: "10 reps/side" },
           },
           {
-            name: "Barbell Step-Ups",
+            name: "Dumbbell Step-Ups",
             sets: 3,
             prescription: "8 reps/side",
-            desc: "Bar on upper back, step full-foot onto the bench, drive through the heel to stand, control the descent.",
+            desc: "Dumbbell in each hand at your sides. Step full-foot onto the bench, drive through the heel to stand all the way up, control the descent.",
             cue: "Don't bounce off the back leg — make the working leg do the work.",
             alt: { name: "Reverse Lunge", sets: 3, prescription: "10 reps/side" },
           },
@@ -299,7 +297,6 @@ const PROGRAM = {
           { name: "World's Greatest Stretch",  sets: 1, prescription: "4/side" },
           { name: "Bodyweight Squat",          sets: 1, prescription: "10 reps" },
           { name: "Push-Up (easy pace)",       sets: 1, prescription: "5 reps" },
-          { name: "Empty-Bar Bench Press",     sets: 1, prescription: "10 reps", desc: "Just the bar to prep the shoulders." },
         ],
       },
       {
@@ -308,17 +305,17 @@ const PROGRAM = {
         note: "Rest 60–90 sec between sets. Loads should feel ~70–75% effort — this is volume, not testing.",
         items: [
           {
-            name: "Barbell Bench Press",
+            name: "Dumbbell Bench Press",
             sets: 3,
-            prescription: "8 reps",
-            desc: "Lighter than Monday. Bar to mid-chest, brief pause, press.",
-            cue: "Keep elbows tucked ~45°.",
+            prescription: "10 reps",
+            desc: "Lighter than Monday. Dumbbell in each hand at chest, press up to straight arms, control the way down.",
+            cue: "Keep elbows about 45° from the torso, not flared out wide.",
             alt: { name: "Push-Up", sets: 3, prescription: "12 reps" },
           },
           {
-            name: "Barbell Full Squat",
+            name: "Dumbbell Goblet Squat",
             sets: 3,
-            prescription: "8 reps",
+            prescription: "10 reps",
             desc: "Same form as Wednesday, lighter weight. Focus on smooth depth and control.",
             alt: { name: "Bodyweight Squat", sets: 3, prescription: "15 reps" },
           },
@@ -331,10 +328,10 @@ const PROGRAM = {
             alt: { name: "Doorway Row", sets: 3, prescription: "12 reps" },
           },
           {
-            name: "Barbell Lunge",
+            name: "Dumbbell Lunges",
             sets: 3,
             prescription: "8 reps/side",
-            desc: "Bar on upper back, step into a lunge, drop the back knee just above the floor, drive through the front heel.",
+            desc: "Dumbbell in each hand at your sides. Step forward (or back) into a lunge, drop the back knee just above the floor, drive through the front heel.",
             alt: { name: "Reverse Lunge", sets: 3, prescription: "10 reps/side" },
           },
           {
