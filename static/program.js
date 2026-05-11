@@ -38,7 +38,7 @@ const PROGRAM = {
           { name: "World's Greatest Stretch",  sets: 2, prescription: "5 reps/side",   desc: "Lunge, drop hand inside front foot, rotate top arm to the ceiling." },
           { name: "Thoracic Rotation (Open Book)", sets: 2, prescription: "8 reps/side", desc: "Side-lying, knees stacked, rotate top arm and shoulder open to the floor behind you." },
           { name: "Half-Kneeling Hip Flexor Stretch", sets: 2, prescription: "45 sec/side", desc: "Squeeze the glute of the back leg, gentle forward shift." },
-          { name: "Standing Hamstring Stretch", sets: 2, prescription: "30 sec/side",  desc: "Foot on a low step, hinge at the hip with a flat back." },
+          { name: "Seated Hamstring Stretch", sets: 2, prescription: "30 sec/side",  desc: "Sit on the floor, one leg straight out, fold forward over the leg keeping a flat back. Reach for the foot — don't force it." },
           { name: "Pigeon Stretch",            sets: 2, prescription: "60 sec/side",   desc: "Front shin angled, hips square, fold forward as it loosens." },
           { name: "Child's Pose",              sets: 1, prescription: "90 sec",        desc: "Hips back to heels, arms long, breathe through the nose." },
         ],
@@ -94,7 +94,7 @@ const PROGRAM = {
         kind: "cooldown",
         items: [
           { name: "Child's Pose",            sets: 1, prescription: "45 sec" },
-          { name: "Standing Hamstring Stretch", sets: 1, prescription: "30 sec/side" },
+          { name: "Seated Hamstring Stretch", sets: 1, prescription: "30 sec/side" },
           { name: "Easy walk",               freeform: "30 min · conversational pace" },
         ],
       },
@@ -137,7 +137,7 @@ const PROGRAM = {
         items: [
           { name: "Easy walk",                sets: 1, prescription: "3 min" },
           { name: "Standing Quad Stretch",    sets: 1, prescription: "30 sec/side" },
-          { name: "Standing Hamstring Stretch", sets: 1, prescription: "30 sec/side" },
+          { name: "Seated Hamstring Stretch", sets: 1, prescription: "30 sec/side" },
           { name: "Half-Kneeling Hip Flexor Stretch", sets: 1, prescription: "45 sec/side" },
           { name: "Calf Stretch (against wall)", sets: 1, prescription: "30 sec/side" },
           { name: "Child's Pose",             sets: 1, prescription: "60 sec" },
@@ -222,7 +222,7 @@ const PROGRAM = {
         items: [
           { name: "Easy walk",                sets: 1, prescription: "3 min" },
           { name: "Standing Quad Stretch",    sets: 1, prescription: "30 sec/side" },
-          { name: "Standing Hamstring Stretch", sets: 1, prescription: "30 sec/side" },
+          { name: "Seated Hamstring Stretch", sets: 1, prescription: "30 sec/side" },
           { name: "Half-Kneeling Hip Flexor Stretch", sets: 1, prescription: "45 sec/side" },
           { name: "Calf Stretch (against wall)", sets: 1, prescription: "30 sec/side" },
           { name: "Child's Pose",             sets: 1, prescription: "60 sec" },
@@ -323,7 +323,7 @@ const PROGRAM = {
         title: "Cool-Down",
         kind: "cooldown",
         items: [
-          { name: "Standing Hamstring Stretch",       sets: 1, prescription: "30 sec/side" },
+          { name: "Seated Hamstring Stretch",         sets: 1, prescription: "30 sec/side" },
           { name: "Half-Kneeling Hip Flexor Stretch", sets: 1, prescription: "45 sec/side" },
           { name: "Cat-Cow",                          sets: 1, prescription: "10 reps" },
         ],

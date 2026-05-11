@@ -488,13 +488,13 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: "hamstring_stretch",
-    name: "Standing Hamstring Stretch",
+    name: "Seated Hamstring Stretch",
     pattern: "mobility",
     difficulty: 1,
     equipment: "none",
     unit: "seconds",
     dosage: [30, 45],
-    description: "One leg forward on a low step, hinge at hip and feel a hamstring stretch.",
+    description: "Sit on the floor, one leg straight out, fold forward over the leg with a flat back.",
   },
   {
     id: "thoracic_rotation",
