@@ -37,6 +37,21 @@ npm run dev
 
 Then open <http://localhost:3000>.
 
+## Static version
+
+There's also a self-contained static build under `static/` with the week
+pre-baked for the original user (148 lb, 5'5", soccer Tue/Thu, walks/biking
+other days). No build step, no server required:
+
+```bash
+# Either open static/index.html directly in a browser,
+# or serve the folder locally:
+cd static && python3 -m http.server 8000
+```
+
+It auto-highlights today, lets you tap to check off sets, and saves progress
+in localStorage. Print-friendly too.
+
 ## Notes
 
 - All exercise dosages and themes live in `src/lib/exercises.ts` and `src/lib/generator.ts`.
