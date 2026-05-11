@@ -58,6 +58,8 @@ const PROGRAM = {
     duration: "~35 min + 30 min walk",
     summary:
       "Bench, pulldown, brace. Press, pull, core — balanced upper-body day at the gym. Add a 30-min easy walk later.",
+    progressionNote:
+      "Double progression: start at the bottom of each rep range. Once you hit the top of the range on every working set, bump the dumbbells +5 lb next session (or one pin on the cable stack) and drop back to the bottom. Log your top-set weight + reps below so you remember.",
     blocks: [
       {
         title: "Warm-Up",
@@ -177,6 +179,8 @@ const PROGRAM = {
     duration: "~40 min + 30 min bike",
     summary:
       "Legs feel tired from Tuesday — that's normal. Heavy is fine but not max. Drop a set if anything feels off.",
+    progressionNote:
+      "Double progression: hit the top of each rep range on every set, then add +5 lb to the dumbbells (or one cable pin) next time and reset to the bottom of the range. Legs are bigger movers — be patient, jumps in load may take 2–3 weeks instead of 1.",
     blocks: [
       {
         title: "Warm-Up",
@@ -288,6 +292,8 @@ const PROGRAM = {
     duration: "~40 min + 30 min walk",
     summary:
       "Cap the week with a balanced full-body session. Keep loads moderate — you're 48 hours out from Tuesday and 24 hours past Thursday.",
+    progressionNote:
+      "Friday is volume day — keep loads ~5–10 lb lighter than Monday/Wednesday. Same double-progression rule: when all sets hit the top of the range, add +5 lb next week. Logging your weights below is the easiest way to keep yourself honest week to week.",
     blocks: [
       {
         title: "Warm-Up",
@@ -424,7 +430,10 @@ function todayKey() {
 }
 
 const STORAGE_KEY = "mefit-static-checks-v1";
+const LOG_KEY = "mefit-static-log-v1";
+
 let checks = loadChecks();
+let logEntries = loadLog();
 
 function loadChecks() {
   try {
@@ -440,6 +449,36 @@ function saveChecks() {
 }
 function checkKey(dayKey, blockIdx, itemIdx, setIdx) {
   return `${dayKey}/${blockIdx}/${itemIdx}/${setIdx}`;
+}
+
+function loadLog() {
+  try {
+    return JSON.parse(localStorage.getItem(LOG_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+function saveLog() {
+  try {
+    localStorage.setItem(LOG_KEY, JSON.stringify(logEntries));
+  } catch {}
+}
+function lastLog(name) {
+  const arr = logEntries[name];
+  return arr && arr.length ? arr[arr.length - 1] : null;
+}
+function recordLog(name, weight, reps) {
+  if (!logEntries[name]) logEntries[name] = [];
+  const today = todayISO();
+  const idx = logEntries[name].findIndex((e) => e.date === today);
+  const entry = { date: today, weight, reps };
+  if (idx >= 0) logEntries[name][idx] = entry;
+  else logEntries[name].push(entry);
+  saveLog();
+}
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 function renderDayTabs(activeKey) {
@@ -486,6 +525,12 @@ function renderDay(dayKey) {
         <p class="duration">${day.duration}</p>
       </div>
       <p class="summary">${day.summary}</p>
+      ${day.progressionNote ? `
+        <aside class="progression">
+          <p class="progression-title">How to progress</p>
+          <p class="progression-body">${day.progressionNote}</p>
+        </aside>
+      ` : ""}
     </header>
     ${day.blocks.map((b, i) => renderBlock(dayKey, b, i)).join("")}
   `;
@@ -499,6 +544,73 @@ function renderDay(dayKey) {
       saveChecks();
     });
   });
+
+  // wire weight-log forms
+  view.querySelectorAll(".log-row").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = form.dataset.exercise;
+      const weight = parseFloat(form.elements.weight.value);
+      const reps = parseInt(form.elements.reps.value, 10);
+      if (!isFinite(weight) || !isFinite(reps) || weight <= 0 || reps <= 0) {
+        flash(form, "Enter weight + reps");
+        return;
+      }
+      recordLog(name, weight, reps);
+      // Re-render this exact form to show the new "Last:" line + clear inputs
+      const replacement = document.createElement("div");
+      replacement.innerHTML = renderLog(findItemByName(name));
+      const newForm = replacement.firstElementChild;
+      form.replaceWith(newForm);
+      wireOneForm(newForm);
+      flash(newForm, "Saved ✓");
+    });
+  });
+}
+
+function wireOneForm(form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = form.dataset.exercise;
+    const weight = parseFloat(form.elements.weight.value);
+    const reps = parseInt(form.elements.reps.value, 10);
+    if (!isFinite(weight) || !isFinite(reps) || weight <= 0 || reps <= 0) {
+      flash(form, "Enter weight + reps");
+      return;
+    }
+    recordLog(name, weight, reps);
+    const replacement = document.createElement("div");
+    replacement.innerHTML = renderLog(findItemByName(name));
+    const newForm = replacement.firstElementChild;
+    form.replaceWith(newForm);
+    wireOneForm(newForm);
+    flash(newForm, "Saved ✓");
+  });
+}
+
+function findItemByName(name) {
+  for (const day of Object.values(PROGRAM)) {
+    for (const block of day.blocks) {
+      for (const item of block.items) {
+        if (item.name === name) return item;
+      }
+    }
+  }
+  return { name };
+}
+
+function flash(formEl, msg) {
+  let bubble = formEl.querySelector(".log-flash");
+  if (!bubble) {
+    bubble = document.createElement("span");
+    bubble.className = "log-flash";
+    formEl.appendChild(bubble);
+  }
+  bubble.textContent = msg;
+  clearTimeout(bubble._t);
+  bubble._t = setTimeout(() => {
+    bubble.remove();
+  }, 1800);
 }
 
 function renderBlock(dayKey, b, blockIdx) {
@@ -544,6 +656,7 @@ function renderItem(dayKey, blockIdx, itemIdx, item) {
         ${item.desc ? `<p class="desc">${item.desc}</p>` : ""}
         ${item.cue ? `<p class="cue">↪ ${item.cue}</p>` : ""}
         ${renderAlt(item)}
+        ${renderLog(item)}
         ${renderDemo(item)}
         ${setButtons}
       </div>
@@ -562,6 +675,35 @@ function renderAlt(item) {
       <span class="alt-presc">${dose}</span>
     </p>
   `;
+}
+
+function renderLog(item) {
+  // Only render the log row for the main weighted lifts (those with a bodyweight alt).
+  if (!item.alt) return "";
+  const safeName = String(item.name).replace(/"/g, "&quot;");
+  const last = lastLog(item.name);
+  const lastLine = last
+    ? `<span class="log-last">Last: ${escapeNum(last.weight)} lb × ${escapeNum(last.reps)} reps · ${last.date}</span>`
+    : `<span class="log-last log-last-empty">No history yet — log today to start the progression.</span>`;
+
+  return `
+    <form class="log-row" data-exercise="${safeName}" autocomplete="off">
+      <label>
+        <span>Weight</span>
+        <input type="number" name="weight" min="0" step="0.5" inputmode="decimal" placeholder="lb" />
+      </label>
+      <label>
+        <span>Top-set reps</span>
+        <input type="number" name="reps" min="0" max="50" inputmode="numeric" placeholder="reps" />
+      </label>
+      <button type="submit" class="log-save">Save</button>
+      ${lastLine}
+    </form>
+  `;
+}
+
+function escapeNum(n) {
+  return String(n).replace(/[^\d.\-]/g, "");
 }
 
 function renderDemo(item) {
@@ -601,6 +743,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!confirm("Clear all checked sets across all days?")) return;
     checks = {};
     saveChecks();
+    renderDay(
+      document.querySelector(".day-tab.active")?.dataset.day || todayKey(),
+    );
+  });
+
+  $("#reset-log-btn").addEventListener("click", () => {
+    if (!confirm("Clear your entire weight-log history? This can't be undone.")) return;
+    logEntries = {};
+    saveLog();
     renderDay(
       document.querySelector(".day-tab.active")?.dataset.day || todayKey(),
     );
