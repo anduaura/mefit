@@ -56,6 +56,18 @@ const DEMOS = {
   // Conditioning
   "mountain climbers":                { id: "Mountain_Climbers",                 yt: "mountain climbers proper form" },
   "jumping jacks":                    { id: null,                                yt: "jumping jacks exercise" },
+
+  // Weighted (gym days)
+  "barbell bench press":              { id: "Barbell_Bench_Press_-_Medium_Grip", yt: "barbell bench press proper form" },
+  "empty-bar bench press":            { id: "Barbell_Bench_Press_-_Medium_Grip", yt: "empty bar bench press warm up" },
+  "wide-grip lat pulldown":           { id: "Wide-Grip_Lat_Pulldown",            yt: "lat pulldown proper form" },
+  "barbell back squat":               { id: "Barbell_Full_Squat",                yt: "barbell back squat proper form" },
+  "barbell full squat":               { id: "Barbell_Full_Squat",                yt: "barbell full squat depth form" },
+  "empty-bar back squat":             { id: "Barbell_Full_Squat",                yt: "empty bar back squat warm up" },
+  "barbell romanian deadlift":        { id: "Romanian_Deadlift",                 yt: "barbell romanian deadlift form" },
+  "barbell step-ups":                 { id: "Barbell_Step_Ups",                  yt: "barbell step ups form" },
+  "seated cable rows":                { id: "Seated_Cable_Rows",                 yt: "seated cable row proper form" },
+  "barbell lunge":                    { id: "Barbell_Lunge",                     yt: "barbell lunge proper form" },
 };
 
 /** Normalize a display name to the key shape used in DEMOS. */
