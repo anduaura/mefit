@@ -54,31 +54,57 @@ const PROGRAM = {
 
   mon: {
     title: "Upper Body Push & Pull",
-    eyebrow: "Monday · strength",
-    duration: "~25 min + 30 min walk",
+    eyebrow: "Monday · strength (gym)",
+    duration: "~35 min + 30 min walk",
     summary:
-      "Press, pull, brace. This day balances the rotation- and quad-heavy soccer days with chest, back, and shoulder work.",
+      "Bench, pulldown, brace. Press, pull, core — balanced upper-body day at the gym. Add a 30-min easy walk later.",
     blocks: [
       {
         title: "Warm-Up",
         kind: "warmup",
-        note: "About 3 minutes. Goal: warm joints, not fatigue.",
+        note: "About 5 minutes. Add 1–2 light warm-up sets on the bench before working weight.",
         items: [
           { name: "Cat-Cow",            sets: 1, prescription: "10 reps" },
           { name: "Arm Circles",        sets: 1, prescription: "10 each direction" },
           { name: "Thoracic Rotation (Open Book)", sets: 1, prescription: "6 reps/side" },
           { name: "Scapular Push-Up",   sets: 1, prescription: "10 reps", desc: "In a plank, protract and retract the shoulder blades. No elbow bend." },
+          { name: "Empty-Bar Bench Press", sets: 2, prescription: "8 reps", desc: "Just the bar. Groove the movement before loading." },
         ],
       },
       {
-        title: "Main Circuit",
+        title: "Main Lifts",
         kind: "main",
-        note: "3 rounds. Rest 45 sec between exercises, 60 sec after a full round.",
+        note: "Rest 90 sec between sets. Pick a weight that leaves 1–2 reps in the tank on the last set.",
         items: [
-          { name: "Push-Up",            sets: 3, prescription: "10 reps", desc: "Hands shoulder-width, body straight head-to-heels, lower chest to floor.", cue: "Elbows about 45°. Drop to knees if form breaks." },
-          { name: "Doorway Row",        sets: 3, prescription: "12 reps", desc: "Grip both sides of a sturdy door frame, lean back arms extended, pull chest to frame.", cue: "Squeeze shoulder blades together at the top." },
-          { name: "Forearm Plank",      sets: 3, prescription: "30 sec",  desc: "Forearms on the floor, body straight. Tuck the pelvis, squeeze the glutes." },
-          { name: "Dead Bug",           sets: 3, prescription: "8 reps/side", desc: "On back, lower opposite arm and leg slowly, return, switch.", cue: "Keep low back pressed into the floor." },
+          {
+            name: "Barbell Bench Press",
+            sets: 4,
+            prescription: "6–8 reps",
+            desc: "Feet planted, slight arch in the lower back, bar touches mid-chest, press to lockout.",
+            cue: "Pause briefly at the bottom. Drive feet into the floor.",
+            alt: { name: "Push-Up", sets: 3, prescription: "10 reps" },
+          },
+          {
+            name: "Wide-Grip Lat Pulldown",
+            sets: 4,
+            prescription: "8–10 reps",
+            desc: "Slightly wider than shoulders, pull the bar to your upper chest, control the way up.",
+            cue: "Drive elbows down and back. Avoid leaning excessively backward.",
+            alt: { name: "Doorway Row", sets: 3, prescription: "12 reps" },
+          },
+          {
+            name: "Forearm Plank",
+            sets: 3,
+            prescription: "30 sec",
+            desc: "Forearms on the floor, body straight. Tuck the pelvis, squeeze the glutes.",
+          },
+          {
+            name: "Dead Bug",
+            sets: 3,
+            prescription: "8 reps/side",
+            desc: "On back, lower opposite arm and leg slowly, return, switch.",
+            cue: "Keep low back pressed into the floor.",
+          },
         ],
       },
       {
@@ -148,31 +174,58 @@ const PROGRAM = {
 
   wed: {
     title: "Lower Body Strength",
-    eyebrow: "Wednesday · strength",
-    duration: "~25 min + 30 min bike",
+    eyebrow: "Wednesday · strength (gym)",
+    duration: "~40 min + 30 min bike",
     summary:
-      "Legs feel tired from Tuesday — that's normal. This is strength work, not a beating. Move with control.",
+      "Legs feel tired from Tuesday — that's normal. Heavy is fine but not max. Drop a set if anything feels off.",
     blocks: [
       {
         title: "Warm-Up",
         kind: "warmup",
-        note: "Wake the hips up after soccer.",
+        note: "Wake the hips up after soccer. Then add 2 light warm-up sets on the squat before working weight.",
         items: [
           { name: "Glute Bridge",      sets: 1, prescription: "15 reps", desc: "Lie on back, knees bent, drive hips up by squeezing glutes." },
           { name: "Cat-Cow",           sets: 1, prescription: "10 reps" },
           { name: "Ankle Rocks",       sets: 1, prescription: "10/side", desc: "Half-kneel, drive front knee forward over toes without lifting heel." },
           { name: "Bodyweight Squat",  sets: 1, prescription: "10 reps · slow" },
+          { name: "Empty-Bar Back Squat", sets: 2, prescription: "8 reps", desc: "Just the bar across your upper back. Groove the pattern before loading." },
         ],
       },
       {
-        title: "Main Circuit",
+        title: "Main Lifts",
         kind: "main",
-        note: "3 rounds. Rest 60 sec between rounds. If legs feel cooked, do 2 rounds and call it.",
+        note: "Rest 2 min between squat sets, 90 sec between the other lifts. If legs feel cooked, drop one set of squats.",
         items: [
-          { name: "Bodyweight Squat",      sets: 3, prescription: "15 reps",      desc: "Feet shoulder-width. Sit between your heels, chest tall, knees track over toes." },
-          { name: "Reverse Lunge",         sets: 3, prescription: "10 reps/side", desc: "Step back into a lunge, back knee hovers just above the floor, push back to standing.", cue: "Front shin near vertical, weight in the front heel." },
-          { name: "Single-Leg Glute Bridge", sets: 3, prescription: "10 reps/side", desc: "Glute bridge with one leg extended. Drive through the planted heel." },
-          { name: "Wall Sit",              sets: 3, prescription: "30 sec",       desc: "Back flat on a wall, thighs parallel to the floor, hold." },
+          {
+            name: "Barbell Back Squat",
+            sets: 4,
+            prescription: "6–8 reps",
+            desc: "Bar on upper traps, brace the core, sit between the heels. Stand by driving the floor away.",
+            cue: "Chest tall. Knees track over toes. Depth: hip crease at or just below knee.",
+            alt: { name: "Bodyweight Squat", sets: 3, prescription: "15 reps" },
+          },
+          {
+            name: "Barbell Romanian Deadlift",
+            sets: 3,
+            prescription: "8–10 reps",
+            desc: "Soft knees, bar travels along the thighs as you hinge back at the hips. Feel a stretch in the hamstrings, then drive hips forward to stand.",
+            cue: "Flat back. Bar stays glued to the legs.",
+            alt: { name: "Single-Leg Glute Bridge", sets: 3, prescription: "10 reps/side" },
+          },
+          {
+            name: "Barbell Step-Ups",
+            sets: 3,
+            prescription: "8 reps/side",
+            desc: "Bar on upper back, step full-foot onto the bench, drive through the heel to stand, control the descent.",
+            cue: "Don't bounce off the back leg — make the working leg do the work.",
+            alt: { name: "Reverse Lunge", sets: 3, prescription: "10 reps/side" },
+          },
+          {
+            name: "Wall Sit",
+            sets: 3,
+            prescription: "30 sec",
+            desc: "Back flat on a wall, thighs parallel to the floor, hold.",
+          },
         ],
       },
       {
@@ -233,10 +286,10 @@ const PROGRAM = {
 
   fri: {
     title: "Full Body",
-    eyebrow: "Friday · strength + conditioning",
-    duration: "~30 min + 30 min walk",
+    eyebrow: "Friday · strength + conditioning (gym)",
+    duration: "~40 min + 30 min walk",
     summary:
-      "Cap the week with a balanced session. You're 48 hours out from soccer, so push the conditioning a bit.",
+      "Cap the week with a balanced full-body session. Keep loads moderate — you're 48 hours out from Tuesday and 24 hours past Thursday.",
     blocks: [
       {
         title: "Warm-Up",
@@ -246,18 +299,50 @@ const PROGRAM = {
           { name: "World's Greatest Stretch",  sets: 1, prescription: "4/side" },
           { name: "Bodyweight Squat",          sets: 1, prescription: "10 reps" },
           { name: "Push-Up (easy pace)",       sets: 1, prescription: "5 reps" },
+          { name: "Empty-Bar Bench Press",     sets: 1, prescription: "10 reps", desc: "Just the bar to prep the shoulders." },
         ],
       },
       {
-        title: "Main Circuit",
+        title: "Main Lifts",
         kind: "main",
-        note: "3 rounds. Move A → B → C → D → E with ~15 sec between, then rest 90 sec.",
+        note: "Rest 60–90 sec between sets. Loads should feel ~70–75% effort — this is volume, not testing.",
         items: [
-          { name: "Push-Up",               sets: 3, prescription: "12 reps",      desc: "Stop 1–2 reps short of failure." },
-          { name: "Bodyweight Squat",      sets: 3, prescription: "15 reps" },
-          { name: "Doorway Row",           sets: 3, prescription: "12 reps",      cue: "Pause for a beat at the top of each rep." },
-          { name: "Reverse Lunge",         sets: 3, prescription: "10 reps/side" },
-          { name: "Bicycle Crunch",        sets: 3, prescription: "20 reps total", desc: "Slow and controlled — feel obliques work, don't yank the neck." },
+          {
+            name: "Barbell Bench Press",
+            sets: 3,
+            prescription: "8 reps",
+            desc: "Lighter than Monday. Bar to mid-chest, brief pause, press.",
+            cue: "Keep elbows tucked ~45°.",
+            alt: { name: "Push-Up", sets: 3, prescription: "12 reps" },
+          },
+          {
+            name: "Barbell Full Squat",
+            sets: 3,
+            prescription: "8 reps",
+            desc: "Same form as Wednesday, lighter weight. Focus on smooth depth and control.",
+            alt: { name: "Bodyweight Squat", sets: 3, prescription: "15 reps" },
+          },
+          {
+            name: "Seated Cable Rows",
+            sets: 3,
+            prescription: "10 reps",
+            desc: "Chest tall, pull the handle to your sternum, control the way out.",
+            cue: "Squeeze the shoulder blades together at the end of each rep.",
+            alt: { name: "Doorway Row", sets: 3, prescription: "12 reps" },
+          },
+          {
+            name: "Barbell Lunge",
+            sets: 3,
+            prescription: "8 reps/side",
+            desc: "Bar on upper back, step into a lunge, drop the back knee just above the floor, drive through the front heel.",
+            alt: { name: "Reverse Lunge", sets: 3, prescription: "10 reps/side" },
+          },
+          {
+            name: "Bicycle Crunch",
+            sets: 3,
+            prescription: "20 reps total",
+            desc: "Slow and controlled — feel obliques work, don't yank the neck.",
+          },
         ],
       },
       {
@@ -461,10 +546,24 @@ function renderItem(dayKey, blockIdx, itemIdx, item) {
         ${item.freeform ? presc : ""}
         ${item.desc ? `<p class="desc">${item.desc}</p>` : ""}
         ${item.cue ? `<p class="cue">↪ ${item.cue}</p>` : ""}
+        ${renderAlt(item)}
         ${renderDemo(item)}
         ${setButtons}
       </div>
     </li>
+  `;
+}
+
+function renderAlt(item) {
+  if (!item.alt) return "";
+  const a = item.alt;
+  const dose = a.sets ? `${a.sets} × ${a.prescription ?? ""}` : a.prescription ?? "";
+  return `
+    <p class="alt">
+      <span class="alt-label">No gym today?</span>
+      <span class="alt-name">${a.name}</span>
+      <span class="alt-presc">${dose}</span>
+    </p>
   `;
 }
 
