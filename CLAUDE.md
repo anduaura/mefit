@@ -109,7 +109,13 @@ Set check-offs are stored in `localStorage` under `mefit-static-checks-v1` keyed
 - **`POST /api/profile` invalidates cached generated days.** Don't remove that — otherwise an edited profile won't visibly change today's plan.
 - **The static site is not auto-generated.** It mirrors the algorithm's output for one specific persona but is hand-tuned. Don't try to "sync" the two — they serve different audiences.
 
-## Branch / PR state
+## Branch / PR state & merge policy
 
 - Active branch for ongoing work: `claude/fitness-program-generator-cTSrW`.
-- Open PR: #1 (merges this branch → `main`), required to land the Pages workflow.
+- **Direct pushes to `main` are blocked** (HTTP 403, branch protection on). The user wants changes to land on `main` automatically — to honor that, follow this loop on every change without asking:
+  1. Commit on the feature branch.
+  2. `git push origin claude/fitness-program-generator-cTSrW` (retry with exponential backoff on network failure).
+  3. Open a PR via `mcp__github__create_pull_request` (base `main`).
+  4. Merge it via `mcp__github__merge_pull_request` (method `merge`).
+- The Pages workflow (`.github/workflows/pages.yml`) runs on every push to `main`, so the merge step is what makes a change "go live" on `https://anduaura.github.io/mefit/`.
+- Commit messages: do **not** include the `https://claude.ai/code/...` trailer (per user direction).
