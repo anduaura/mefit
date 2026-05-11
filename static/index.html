@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mefit — your week</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap">
+        <div class="brand">
+          <span class="brand-dot" aria-hidden></span>
+          <span class="brand-name">mefit</span>
+        </div>
+        <div class="me">
+          <span class="me-name">Your week</span>
+          <span class="me-meta">148 lb · 5′5″ · soccer Tue/Thu</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1 id="today-heading">Today</h1>
+        <p id="today-sub" class="muted"></p>
+      </section>
+
+      <nav id="day-tabs" class="day-tabs" aria-label="Pick a day"></nav>
+
+      <section id="day-view" class="day-view" aria-live="polite"></section>
+
+      <section class="legend">
+        <h2>How to use this</h2>
+        <ul>
+          <li>Tap an exercise card to mark a set done — your progress is saved in this browser.</li>
+          <li>Rest 45–60 sec between sets, 60–90 sec between rounds, unless noted.</li>
+          <li>If a knee, hip, or shoulder feels off after soccer, skip the strength day and double up on the mobility day.</li>
+          <li>Hydrate. Sleep 7+ hours. Slow weight loss beats fast loss every week.</li>
+        </ul>
+        <p class="muted small">
+          Not medical advice. If something hurts (not just "hard"), stop and check with a pro.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <button id="reset-btn" type="button" class="link-btn">Reset checked sets</button>
+        <span class="muted small">Built for you · works offline · no account needed</span>
+      </div>
+    </footer>
+
+    <script src="program.js"></script>
+  </body>
+</html>
