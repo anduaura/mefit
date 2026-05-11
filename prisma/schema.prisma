@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String           @id @default(cuid())
+  email           String?          @unique
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  profile         Profile?
+  fixedActivities FixedActivity[]
+  generatedDays   GeneratedDay[]
+}
+
+model Profile {
+  userId        String   @id
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  displayName   String?
+  age           Int?
+  sex           String?
+  weightLbs     Float?
+  heightInches  Float?
+  goal          String   @default("general_fitness")
+  fitnessLevel  String   @default("beginner")
+  minutesPerDay Int      @default(30)
+  equipment     String   @default("none")
+  injuries      String?
+  notes         String?
+  updatedAt     DateTime @updatedAt
+}
+
+model FixedActivity {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dayOfWeek  Int
+  activity   String
+  durationMin Int     @default(60)
+  intensity  String   @default("moderate")
+
+  @@unique([userId, dayOfWeek, activity])
+}
+
+model GeneratedDay {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        String
+  programJson String
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, date])
+}
